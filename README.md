@@ -61,12 +61,12 @@ make api          # launch FastAPI (uvicorn)
 └── README.md
 ```
 
-## Next steps (portfolio‑worthy upgrades)
-- Swap sample CSV with a public dataset & add a Data Card.
-- Add MLflow tracking & experiment comparison in `notebooks/`.
-- Create an Airflow or GitHub Actions workflow to retrain weekly.
-- Push a Docker image to AWS ECR or Azure ACR and deploy to ECS/AKS.
-- Add a small Streamlit front‑end for demo.
+## Results
+- GradientBoosting — ROC-AUC: 0.590, Accuracy: 0.588, F1: 0.421
+- XGBoost — ROC-AUC: 0.569, Accuracy: 0.588, F1: 0.492
+
+**Best model:** gradient_boosting (chosen by ROC-AUC and served via `models/best_model.pkl`)
+
 
 ---
-*Generated on 2025-09-03 14:21 UTC*
+
