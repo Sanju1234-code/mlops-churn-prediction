@@ -1,3 +1,4 @@
+![CI](https://github.com/Sanju1234-code/mlops-churn-prediction/actions/workflows/ci.yml/badge.svg)
 # MLOps Churn Prediction (End‑to‑End)
 
 An end‑to‑end **Customer Churn Prediction** project designed to showcase
@@ -61,12 +62,12 @@ make api          # launch FastAPI (uvicorn)
 └── README.md
 ```
 
-## Results
-- GradientBoosting — ROC-AUC: 0.590, Accuracy: 0.588, F1: 0.421
-- XGBoost — ROC-AUC: 0.569, Accuracy: 0.588, F1: 0.492
-
-**Best model:** gradient_boosting (chosen by ROC-AUC and served via `models/best_model.pkl`)
-
+## Next steps 
+- Swap sample CSV with a public dataset & add a Data Card.
+- Add MLflow tracking & experiment comparison in `notebooks/`.
+- Create an Airflow or GitHub Actions workflow to retrain weekly.
+- Push a Docker image to AWS ECR or Azure ACR and deploy to ECS/AKS.
+- Add a small Streamlit front‑end for demo.
 
 ---
-
+*Generated on 2025-09-03 14:21 UTC*
