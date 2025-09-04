@@ -4,19 +4,23 @@ import joblib
 from pathlib import Path
 import pandas as pd
 
+
 app = FastAPI(title="Churn Prediction API", version="0.2.0")
 
 BEST_PATH = Path("models/best_model.pkl")
 FALLBACK_PATH = Path("models/model.pkl")  # legacy fallback
+
 
 # If no model artifacts exist, train once so the API can serve predictions
 if not BEST_PATH.exists() and not FALLBACK_PATH.exists():
     from src.train import main as train_main
     train_main("data/raw/sample_telco_churn.csv")
 
+
 # Prefer best_model.pkl; otherwise use legacy model.pkl
 model_path = BEST_PATH if BEST_PATH.exists() else FALLBACK_PATH
 pipe = joblib.load(model_path)
+
 
 class Customer(BaseModel):
     gender: str = Field(..., examples=["Female"])
@@ -39,9 +43,11 @@ class Customer(BaseModel):
     MonthlyCharges: float = 29.85
     TotalCharges: float | None = None
 
+
 @app.get("/")
 def root():
     return {"ok": True, "message": "Churn Prediction API"}
+
 
 @app.post("/predict")
 def predict(cust: Customer):

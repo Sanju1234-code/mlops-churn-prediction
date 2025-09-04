@@ -1,4 +1,8 @@
-import json, pathlib, subprocess, sys
+import json
+import pathlib
+import subprocess
+import sys
+
 
 def test_training_produces_artifacts():
     # Run training as a module so imports work on CI
